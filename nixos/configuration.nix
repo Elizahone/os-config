@@ -15,6 +15,7 @@
       device = "nodev"; # "nodev" is used for UEFI
       efiSupport = true;
       useOSProber = true;
+      default = "saved";
     };
     efi.canTouchEfiVariables = true;
   };
@@ -76,6 +77,16 @@
     };
   };
 
+  security.rtkit.enable = true;
+  services.pipewire = {
+    enable = true; # if not already enabled
+    alsa.enable = true;
+    alsa.support32Bit = false;
+    # If you want to use JACK applications, uncomment the following
+    #jack.enable = true;
+  };
+
+
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users."elzh" = {
     isNormalUser = true;
@@ -117,9 +128,13 @@
     gnumake
     wget
     vivaldi
+    pwvucontrol
   ];
 
-  programs.hyprland.enable = true;
+  programs.hyprland = {
+    enable = true;
+    xwayland.enable = false;
+  };
 
   programs.nix-ld = {
     enable = true;
