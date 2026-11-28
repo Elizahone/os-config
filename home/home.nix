@@ -19,6 +19,10 @@
     mihomo
     foot
     hyprlauncher
+    htop
+    uv
+
+    pkgs-unstable.claude-code
   ];
 
   imports = [

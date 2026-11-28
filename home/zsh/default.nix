@@ -11,6 +11,7 @@
     autosuggestion.enable = true;
     syntaxHighlighting.enable = true;
 
+
     # Content of .zshenv, replacing the old .zshenv / env.sh.
     # XDG_* variables are already provided by home-manager.
     envExtra = ''
@@ -21,6 +22,7 @@
 
     # Content of .zshrc: the old utils.sh functions and the prompt.
     initContent = ''
+      bindkey -e
       # ── shell functions ──────────────────────────────────────────────────
       elzh_proxy() {
         case $1 in
