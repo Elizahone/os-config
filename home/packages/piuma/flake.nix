@@ -1,0 +1,14 @@
+{
+
+  inputs.nixpkgs.url = "https://mirrors.ustc.edu.cn/nix-channels/nixos-26.05/nixexprs.tar.xz";
+
+  outputs = { self, nixpkgs, ... } :
+    let
+      system = "x86_64-linux";
+      pkgs = import nixpkgs { inherit system; };
+    in
+    {
+      packages.${system}.default = pkgs.callPackage ./piuma.nix {};
+    };
+
+}
